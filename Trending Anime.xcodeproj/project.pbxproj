@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B0EA989E2495238D0028DE8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA989D2495238D0028DE8A /* AppDelegate.swift */; };
+		B0EA98A02495238D0028DE8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA989F2495238D0028DE8A /* SceneDelegate.swift */; };
+		B0EA98A22495238D0028DE8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA98A12495238D0028DE8A /* ContentView.swift */; };
+		B0EA98A4249523910028DE8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0EA98A3249523910028DE8A /* Assets.xcassets */; };
+		B0EA98A7249523910028DE8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0EA98A6249523910028DE8A /* Preview Assets.xcassets */; };
+		B0EA98AA249523910028DE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0EA98A8249523910028DE8A /* LaunchScreen.storyboard */; };
+		B0EA98B5249523910028DE8A /* Trending_AnimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA98B4249523910028DE8A /* Trending_AnimeTests.swift */; };
+		B0EA98C0249523910028DE8A /* Trending_AnimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA98BF249523910028DE8A /* Trending_AnimeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0EA98B1249523910028DE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0EA98922495238D0028DE8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0EA98992495238D0028DE8A;
+			remoteInfo = "Trending Anime";
+		};
+		B0EA98BC249523910028DE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0EA98922495238D0028DE8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0EA98992495238D0028DE8A;
+			remoteInfo = "Trending Anime";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B0EA989A2495238D0028DE8A /* Trending Anime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trending Anime.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0EA989D2495238D0028DE8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B0EA989F2495238D0028DE8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B0EA98A12495238D0028DE8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B0EA98A3249523910028DE8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0EA98A6249523910028DE8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B0EA98A9249523910028DE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0EA98AB249523910028DE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0EA98B0249523910028DE8A /* Trending AnimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trending AnimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0EA98B4249523910028DE8A /* Trending_AnimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending_AnimeTests.swift; sourceTree = "<group>"; };
+		B0EA98B6249523910028DE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0EA98BB249523910028DE8A /* Trending AnimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trending AnimeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0EA98BF249523910028DE8A /* Trending_AnimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending_AnimeUITests.swift; sourceTree = "<group>"; };
+		B0EA98C1249523910028DE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0EA98972495238D0028DE8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0EA98AD249523910028DE8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0EA98B8249523910028DE8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B0EA98912495238D0028DE8A = {
+			isa = PBXGroup;
+			children = (
+				B0EA989C2495238D0028DE8A /* Trending Anime */,
+				B0EA98B3249523910028DE8A /* Trending AnimeTests */,
+				B0EA98BE249523910028DE8A /* Trending AnimeUITests */,
+				B0EA989B2495238D0028DE8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0EA989B2495238D0028DE8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0EA989A2495238D0028DE8A /* Trending Anime.app */,
+				B0EA98B0249523910028DE8A /* Trending AnimeTests.xctest */,
+				B0EA98BB249523910028DE8A /* Trending AnimeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0EA989C2495238D0028DE8A /* Trending Anime */ = {
+			isa = PBXGroup;
+			children = (
+				B0EA989D2495238D0028DE8A /* AppDelegate.swift */,
+				B0EA989F2495238D0028DE8A /* SceneDelegate.swift */,
+				B0EA98A12495238D0028DE8A /* ContentView.swift */,
+				B0EA98A3249523910028DE8A /* Assets.xcassets */,
+				B0EA98A8249523910028DE8A /* LaunchScreen.storyboard */,
+				B0EA98AB249523910028DE8A /* Info.plist */,
+				B0EA98A5249523910028DE8A /* Preview Content */,
+			);
+			path = "Trending Anime";
+			sourceTree = "<group>";
+		};
+		B0EA98A5249523910028DE8A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B0EA98A6249523910028DE8A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B0EA98B3249523910028DE8A /* Trending AnimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0EA98B4249523910028DE8A /* Trending_AnimeTests.swift */,
+				B0EA98B6249523910028DE8A /* Info.plist */,
+			);
+			path = "Trending AnimeTests";
+			sourceTree = "<group>";
+		};
+		B0EA98BE249523910028DE8A /* Trending AnimeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B0EA98BF249523910028DE8A /* Trending_AnimeUITests.swift */,
+				B0EA98C1249523910028DE8A /* Info.plist */,
+			);
+			path = "Trending AnimeUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0EA98992495238D0028DE8A /* Trending Anime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0EA98C4249523910028DE8A /* Build configuration list for PBXNativeTarget "Trending Anime" */;
+			buildPhases = (
+				B0EA98962495238D0028DE8A /* Sources */,
+				B0EA98972495238D0028DE8A /* Frameworks */,
+				B0EA98982495238D0028DE8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trending Anime";
+			productName = "Trending Anime";
+			productReference = B0EA989A2495238D0028DE8A /* Trending Anime.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0EA98AF249523910028DE8A /* Trending AnimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0EA98C7249523910028DE8A /* Build configuration list for PBXNativeTarget "Trending AnimeTests" */;
+			buildPhases = (
+				B0EA98AC249523910028DE8A /* Sources */,
+				B0EA98AD249523910028DE8A /* Frameworks */,
+				B0EA98AE249523910028DE8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0EA98B2249523910028DE8A /* PBXTargetDependency */,
+			);
+			name = "Trending AnimeTests";
+			productName = "Trending AnimeTests";
+			productReference = B0EA98B0249523910028DE8A /* Trending AnimeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B0EA98BA249523910028DE8A /* Trending AnimeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0EA98CA249523910028DE8A /* Build configuration list for PBXNativeTarget "Trending AnimeUITests" */;
+			buildPhases = (
+				B0EA98B7249523910028DE8A /* Sources */,
+				B0EA98B8249523910028DE8A /* Frameworks */,
+				B0EA98B9249523910028DE8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0EA98BD249523910028DE8A /* PBXTargetDependency */,
+			);
+			name = "Trending AnimeUITests";
+			productName = "Trending AnimeUITests";
+			productReference = B0EA98BB249523910028DE8A /* Trending AnimeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0EA98922495238D0028DE8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Roy Rodriguez";
+				TargetAttributes = {
+					B0EA98992495238D0028DE8A = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					B0EA98AF249523910028DE8A = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = B0EA98992495238D0028DE8A;
+					};
+					B0EA98BA249523910028DE8A = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = B0EA98992495238D0028DE8A;
+					};
+				};
+			};
+			buildConfigurationList = B0EA98952495238D0028DE8A /* Build configuration list for PBXProject "Trending Anime" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0EA98912495238D0028DE8A;
+			productRefGroup = B0EA989B2495238D0028DE8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0EA98992495238D0028DE8A /* Trending Anime */,
+				B0EA98AF249523910028DE8A /* Trending AnimeTests */,
+				B0EA98BA249523910028DE8A /* Trending AnimeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0EA98982495238D0028DE8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0EA98AA249523910028DE8A /* LaunchScreen.storyboard in Resources */,
+				B0EA98A7249523910028DE8A /* Preview Assets.xcassets in Resources */,
+				B0EA98A4249523910028DE8A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0EA98AE249523910028DE8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0EA98B9249523910028DE8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0EA98962495238D0028DE8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0EA989E2495238D0028DE8A /* AppDelegate.swift in Sources */,
+				B0EA98A02495238D0028DE8A /* SceneDelegate.swift in Sources */,
+				B0EA98A22495238D0028DE8A /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0EA98AC249523910028DE8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0EA98B5249523910028DE8A /* Trending_AnimeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0EA98B7249523910028DE8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0EA98C0249523910028DE8A /* Trending_AnimeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0EA98B2249523910028DE8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0EA98992495238D0028DE8A /* Trending Anime */;
+			targetProxy = B0EA98B1249523910028DE8A /* PBXContainerItemProxy */;
+		};
+		B0EA98BD249523910028DE8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0EA98992495238D0028DE8A /* Trending Anime */;
+			targetProxy = B0EA98BC249523910028DE8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B0EA98A8249523910028DE8A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0EA98A9249523910028DE8A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B0EA98C2249523910028DE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B0EA98C3249523910028DE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0EA98C5249523910028DE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Trending Anime/Preview Content\"";
+				DEVELOPMENT_TEAM = 6MBUZ74Z3W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Trending Anime/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.royrodriguez.Trending-Anime";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0EA98C6249523910028DE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Trending Anime/Preview Content\"";
+				DEVELOPMENT_TEAM = 6MBUZ74Z3W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Trending Anime/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.royrodriguez.Trending-Anime";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B0EA98C8249523910028DE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6MBUZ74Z3W;
+				INFOPLIST_FILE = "Trending AnimeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.royrodriguez.Trending-AnimeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trending Anime.app/Trending Anime";
+			};
+			name = Debug;
+		};
+		B0EA98C9249523910028DE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6MBUZ74Z3W;
+				INFOPLIST_FILE = "Trending AnimeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.royrodriguez.Trending-AnimeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trending Anime.app/Trending Anime";
+			};
+			name = Release;
+		};
+		B0EA98CB249523910028DE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6MBUZ74Z3W;
+				INFOPLIST_FILE = "Trending AnimeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.royrodriguez.Trending-AnimeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trending Anime";
+			};
+			name = Debug;
+		};
+		B0EA98CC249523910028DE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6MBUZ74Z3W;
+				INFOPLIST_FILE = "Trending AnimeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.royrodriguez.Trending-AnimeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trending Anime";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0EA98952495238D0028DE8A /* Build configuration list for PBXProject "Trending Anime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0EA98C2249523910028DE8A /* Debug */,
+				B0EA98C3249523910028DE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0EA98C4249523910028DE8A /* Build configuration list for PBXNativeTarget "Trending Anime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0EA98C5249523910028DE8A /* Debug */,
+				B0EA98C6249523910028DE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0EA98C7249523910028DE8A /* Build configuration list for PBXNativeTarget "Trending AnimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0EA98C8249523910028DE8A /* Debug */,
+				B0EA98C9249523910028DE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0EA98CA249523910028DE8A /* Build configuration list for PBXNativeTarget "Trending AnimeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0EA98CB249523910028DE8A /* Debug */,
+				B0EA98CC249523910028DE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0EA98922495238D0028DE8A /* Project object */;
+}
