@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CombineFeedback",
+        "repositoryURL": "https://github.com/sergdort/CombineFeedback",
+        "state": {
+          "branch": null,
+          "revision": "bd9f87f01baeed44e63b4b0c7972796d85ba607f",
+          "version": "0.7.0"
+        }
+      },
+      {
+        "package": "swift-case-paths",
+        "repositoryURL": "https://github.com/pointfreeco/swift-case-paths.git",
+        "state": {
+          "branch": null,
+          "revision": "fb733d87aabb5b053ad782902f2f3d67e0a65ac5",
+          "version": "0.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

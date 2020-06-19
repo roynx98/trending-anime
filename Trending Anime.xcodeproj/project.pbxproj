@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B042E21324952C000083F432 /* AnimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042E21224952C000083F432 /* AnimeListViewModel.swift */; };
+		B042E21524952C950083F432 /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042E21424952C950083F432 /* AnimeListView.swift */; };
+		B0E2155224969D6100D417D3 /* CombineFeedback in Frameworks */ = {isa = PBXBuildFile; productRef = B0E2155124969D6100D417D3 /* CombineFeedback */; };
+		B0E2155424969D6100D417D3 /* CombineFeedbackUI in Frameworks */ = {isa = PBXBuildFile; productRef = B0E2155324969D6100D417D3 /* CombineFeedbackUI */; };
+		B0E215572496A15D00D417D3 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E215562496A15D00D417D3 /* System.swift */; };
+		B0E215592496A18900D417D3 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E215582496A18900D417D3 /* Feedback.swift */; };
 		B0EA989E2495238D0028DE8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA989D2495238D0028DE8A /* AppDelegate.swift */; };
 		B0EA98A02495238D0028DE8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA989F2495238D0028DE8A /* SceneDelegate.swift */; };
 		B0EA98A22495238D0028DE8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA98A12495238D0028DE8A /* ContentView.swift */; };
@@ -35,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B042E21224952C000083F432 /* AnimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewModel.swift; sourceTree = "<group>"; };
+		B042E21424952C950083F432 /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
+		B0E215562496A15D00D417D3 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		B0E215582496A18900D417D3 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		B0EA989A2495238D0028DE8A /* Trending Anime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trending Anime.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EA989D2495238D0028DE8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0EA989F2495238D0028DE8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E2155224969D6100D417D3 /* CombineFeedback in Frameworks */,
+				B0E2155424969D6100D417D3 /* CombineFeedbackUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +88,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B042E21124952BCF0083F432 /* AnimeList */ = {
+			isa = PBXGroup;
+			children = (
+				B042E21224952C000083F432 /* AnimeListViewModel.swift */,
+				B042E21424952C950083F432 /* AnimeListView.swift */,
+			);
+			path = AnimeList;
+			sourceTree = "<group>";
+		};
+		B0E215552496A13D00D417D3 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				B0E215562496A15D00D417D3 /* System.swift */,
+				B0E215582496A18900D417D3 /* Feedback.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 		B0EA98912495238D0028DE8A = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +129,8 @@
 		B0EA989C2495238D0028DE8A /* Trending Anime */ = {
 			isa = PBXGroup;
 			children = (
+				B0E215552496A13D00D417D3 /* Feedback */,
+				B042E21124952BCF0083F432 /* AnimeList */,
 				B0EA989D2495238D0028DE8A /* AppDelegate.swift */,
 				B0EA989F2495238D0028DE8A /* SceneDelegate.swift */,
 				B0EA98A12495238D0028DE8A /* ContentView.swift */,
@@ -152,6 +184,10 @@
 			dependencies = (
 			);
 			name = "Trending Anime";
+			packageProductDependencies = (
+				B0E2155124969D6100D417D3 /* CombineFeedback */,
+				B0E2155324969D6100D417D3 /* CombineFeedbackUI */,
+			);
 			productName = "Trending Anime";
 			productReference = B0EA989A2495238D0028DE8A /* Trending Anime.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +260,9 @@
 				Base,
 			);
 			mainGroup = B0EA98912495238D0028DE8A;
+			packageReferences = (
+				B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */,
+			);
 			productRefGroup = B0EA989B2495238D0028DE8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -267,8 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B042E21524952C950083F432 /* AnimeListView.swift in Sources */,
 				B0EA989E2495238D0028DE8A /* AppDelegate.swift in Sources */,
+				B042E21324952C000083F432 /* AnimeListViewModel.swift in Sources */,
 				B0EA98A02495238D0028DE8A /* SceneDelegate.swift in Sources */,
+				B0E215572496A15D00D417D3 /* System.swift in Sources */,
+				B0E215592496A18900D417D3 /* Feedback.swift in Sources */,
 				B0EA98A22495238D0028DE8A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,6 +637,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sergdort/CombineFeedback";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0E2155124969D6100D417D3 /* CombineFeedback */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */;
+			productName = CombineFeedback;
+		};
+		B0E2155324969D6100D417D3 /* CombineFeedbackUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */;
+			productName = CombineFeedbackUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B0EA98922495238D0028DE8A /* Project object */;
 }
