@@ -10,6 +10,8 @@ import Combine
 
 struct Test {
     
+    /// Change the state based on the reduce function and applies side effects
+    /// trough feedbacks.
     static func system<State, Event, Scheduler: Combine.Scheduler>(
         initial: State,
         reduce: @escaping (State, Event) -> State,
@@ -27,9 +29,9 @@ struct Test {
             Publishers.MergeMany(events)
                 // Changes a scheduler for all publishers that come after it.
                 .receive(on: scheduler)
+                // From events to states
                 .scan(initial, reduce)
                 .handleEvents(receiveOutput: state.send)
-                .receive(on: scheduler)
                 .prepend(initial)
                 .eraseToAnyPublisher()
         }

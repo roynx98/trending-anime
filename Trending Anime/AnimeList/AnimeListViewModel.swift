@@ -17,6 +17,7 @@ final class AnimeListViewModel: ObservableObject {
     init() {
         Test.system(
             initial: state,
+            // It's the same as AnimeList.reduce
             reduce: Self.reduce,
             scheduler: RunLoop.main,
             feedbacks: [
@@ -44,7 +45,19 @@ final class AnimeListViewModel: ObservableObject {
 }
 
 extension AnimeListViewModel {
-    enum State {
+    enum State : Equatable {
+        static func == (lhs: AnimeListViewModel.State, rhs: AnimeListViewModel.State) -> Bool {
+            
+            switch (lhs, rhs) {
+            case (.idle, .idle):
+                return true
+            case (.loading, .loading):
+                return true
+            default:
+                return false
+            }
+        }
+        
         case idle
         case loading
         case loaded([ListItem])
