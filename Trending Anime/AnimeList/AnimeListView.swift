@@ -11,19 +11,11 @@ import SwiftUI
 struct AnimeListView: View {
     @ObservedObject var viewModel = AnimeListViewModel()
     
-    private var content: some View {
-        switch viewModel.state {
-        case .idle:
-            return Text("Idel")
-        case .loading:
-            return Text("Idel")
-        default:
-            return Text("Defaulr")
-        }
-    }
-    
     var body: some View {
-        VStack {
+        ZStack {
+            Color("background2")
+                .edgesIgnoringSafeArea(.all)
+            
             if viewModel.state == .loading {
                 LoadingContentView()
             } else if viewModel.state == .idle {
@@ -35,7 +27,7 @@ struct AnimeListView: View {
 
 struct AnimeListView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimeListView()
+        AnimeListView().environment(\.colorScheme, .dark)
     }
 }
 
@@ -43,14 +35,17 @@ struct LoadingContentView: View {
     @State var isAnimating = false
     
     var body: some View {
-        Image("kunai")
-            .resizable()
-            .frame(width: 64, height: 64)
-            .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
-            .animation(Animation.linear(duration: 2.0)
-                       .repeatForever(autoreverses: false))
-            .onAppear {
-                self.isAnimating = true
+        VStack {
+            Image("kunai")
+                .resizable()
+                .frame(width: 64, height: 64)
+                .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+                .animation(Animation.linear(duration: 1.5)
+                           .repeatForever(autoreverses: false))
+                .onAppear {
+                    self.isAnimating = true
+            }
+            Text("Loading...").padding(.top, 10)
         }
     }
 }
