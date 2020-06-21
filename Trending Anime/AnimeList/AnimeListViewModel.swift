@@ -115,7 +115,3 @@ extension AnimeListViewModel {
     }
     
 }
-
-struct ListItem {
-    var name = ""
-}

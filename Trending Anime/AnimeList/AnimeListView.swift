@@ -21,7 +21,6 @@ struct AnimeListView: View {
                 LoadingContentView()
             } else if viewModel.state == .idle {
                 Text("Idle").onAppear { self.viewModel.send(event: .onAppear) }
-
                 //TODO: Improve it
             } else if viewModel.state == .loaded([]) {
                 LoadedContentView(state: viewModel.state)
@@ -53,7 +52,6 @@ struct LoadingContentView: View {
                 .onAppear {
                     self.isAnimating = true
             }
-            Text("Loading...").padding(.top, 10)
         }
     }
 }
@@ -67,46 +65,78 @@ struct IdleContentView: View {
 }
 
 struct LoadedContentView: View {
+    @State var topTenList: [AnimeItem] = []
     @State var list: [AnimeItem] = []
     var state: AnimeListViewModel.State
+    var typeColorMapping = ["TV": Color.red, "Movie": Color.purple, "OVA": Color.green]
     
     init(state: AnimeListViewModel.State) {
         self.state = state
     }
-    
+        
     var body: some View {
         ScrollView {
             
-            VStack(spacing: 22) {
-                Text("Trending")
+            VStack(spacing: 20) {
+                HStack {
+                    Text("🔭 Discover")
+                    .bold()
+                }.padding(.top, 20)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(topTenList.indices, id: \.self) { index in
+                            // TODO: Add zoom animation
+                            GeometryReader { proxy in
+                                WebImage(url:  URL(string: self.topTenList[index].imageUrl))
+                                    .resizable()
+                                    .placeholder {
+                                        Rectangle().foregroundColor(.gray)
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 180, height: 277)
+                                .shadow(radius: 10, x: 0, y: 10)
+                                .padding(.leading, 15)
+                            }.frame(width: 180, height: 277)
+                        }
+                    }.padding(.vertical, 30)
+                }
+                
+                Text("⭐️ Trending")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 22)
-                    .padding(.top, 30)
-                ForEach(list.indices, id: \.self) { item in
-                    HStack(spacing: 22) {
-                        WebImage(url:  URL(string: self.list[item].imageUrl))
+                    .padding(.leading, 20)
+                ForEach(list.indices, id: \.self) { index in
+                    HStack(spacing: 10) {
+                        WebImage(url:  URL(string: self.list[index].imageUrl))
                             .resizable()
                             .placeholder {
                                 Rectangle().foregroundColor(.gray)
                             }
+                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 120, height: 154)
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .shadow(radius: 10, x: 0, y: 10)
-                            .padding(.leading, 22)
+                            .padding(.leading, 15)
                         VStack(alignment: .leading) {
-                            Text(self.list[item].type)
+                            Text(self.list[index].type)
                                 .font(.footnote)
+                                .fontWeight(.bold)
                                 .padding(.vertical, 2)
                                 .padding(.horizontal, 10)
                                 .foregroundColor(Color.white)
-                                .background(Color(.red))
+                                .background(self.typeColorMapping[self.list[index].type, default: Color.black])
                                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            Text(self.list[item].title)
-                                .font(.headline)
+                            Text(self.list[index].title)
+                                .font(.system(size: 22))
                                 .padding(.top, 15)
+                            Text("Episosdes \(self.list[index].episodes)")
+                                .font(.footnote)
+                                .foregroundColor(Color.gray)
+                                .padding(.top, 15)
+                            
                             Spacer()
                         }
                         Spacer()
@@ -115,8 +145,8 @@ struct LoadedContentView: View {
             }
         }.onAppear {
             if case let AnimeListViewModel.State.loaded(list) = self.state {
-                self.list = list
-                print(list)
+                self.topTenList = Array(list[0..<10])
+                self.list =  Array(list[10..<list.endIndex])
             }
         }
     }
