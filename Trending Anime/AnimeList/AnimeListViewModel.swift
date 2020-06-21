@@ -21,7 +21,8 @@ final class AnimeListViewModel: ObservableObject {
             reduce: Self.reduce,
             scheduler: RunLoop.main,
             feedbacks: [
-                Self.userInput(input: input.eraseToAnyPublisher())
+                Self.userInput(input: input.eraseToAnyPublisher()),
+                Self.whenLoading()
             ])
             .assign(to: \.state, on: self)
             .store(in: &bag)
@@ -31,15 +32,8 @@ final class AnimeListViewModel: ObservableObject {
         bag.removeAll()
     }
     
-    // 3.
     func send(event: Event) {
         input.send(event)
-    }
-    
-    static func whenLoading() -> Feedback<State, Event> {
-        Feedback { (state: State) -> AnyPublisher<Event, Never> in
-            return Empty().eraseToAnyPublisher()
-        }
     }
     
 }
@@ -53,6 +47,8 @@ extension AnimeListViewModel {
                 return true
             case (.loading, .loading):
                 return true
+            case (.loaded, .loaded):
+                return true
             default:
                 return false
             }
@@ -60,20 +56,20 @@ extension AnimeListViewModel {
         
         case idle
         case loading
-        case loaded([ListItem])
+        case loaded([AnimeItem])
         case error(Error)
     }
 
     enum Event {
         case onAppear
-        case onSelectMovie(Int)
-        case onMoviesLoaded([ListItem])
-        case onFailedToLoadMovies(Error)
+        case onAnimesLoaded([AnimeItem])
+        case onFailedToLoadAnimes(Error)
     }
 }
 
 // MARK: - State Machine
 extension AnimeListViewModel {
+    
     static func reduce(_ state: State, _ event: Event) -> State {
         switch state {
         case .idle:
@@ -85,10 +81,10 @@ extension AnimeListViewModel {
             }
         case .loading:
             switch event {
-            case .onFailedToLoadMovies(let error):
+            case .onFailedToLoadAnimes(let error):
                 return .error(error)
-            case .onMoviesLoaded(let movies):
-                return .loaded(movies)
+            case .onAnimesLoaded(let animes):
+                return .loaded(animes)
             default:
                 return state
             }
@@ -101,6 +97,21 @@ extension AnimeListViewModel {
     
     static func userInput(input: AnyPublisher<Event, Never>) -> Feedback<State, Event> {
         Feedback { _ in input }
+    }
+    
+    static func whenLoading() -> Feedback<State, Event> {
+        return Feedback { (state: State) -> AnyPublisher<Event, Never> in
+            
+            guard case .loading = state else {
+                return Empty().eraseToAnyPublisher()
+            }
+            
+            return AnimeAPI().getTops()
+                // TODO: Why does it work?
+                .map(Event.onAnimesLoaded)
+                .catch { Just(Event.onFailedToLoadAnimes($0)) }
+                .eraseToAnyPublisher()
+        }
     }
     
 }

@@ -2,21 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "CombineFeedback",
-        "repositoryURL": "https://github.com/sergdort/CombineFeedback",
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
         "state": {
           "branch": null,
-          "revision": "bd9f87f01baeed44e63b4b0c7972796d85ba607f",
-          "version": "0.7.0"
+          "revision": "fe92b7aa3d49900defea430828a6774f0a2ab6dd",
+          "version": "5.8.1"
         }
       },
       {
-        "package": "swift-case-paths",
-        "repositoryURL": "https://github.com/pointfreeco/swift-case-paths.git",
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI",
         "state": {
           "branch": null,
-          "revision": "fb733d87aabb5b053ad782902f2f3d67e0a65ac5",
-          "version": "0.1.1"
+          "revision": "4c7f169e39bc35d6b80d42b8eb8301bee9cd0907",
+          "version": "1.5.0"
         }
       }
     ]

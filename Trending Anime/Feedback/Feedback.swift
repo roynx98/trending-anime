@@ -18,6 +18,7 @@ extension Feedback {
         self.run = { state in
             state
                 .map { effects($0) }
+                // Only use the last request (For no ap)
                 .switchToLatest()
                 .eraseToAnyPublisher()
         }

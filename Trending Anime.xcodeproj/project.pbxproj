@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		B042E21324952C000083F432 /* AnimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042E21224952C000083F432 /* AnimeListViewModel.swift */; };
 		B042E21524952C950083F432 /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042E21424952C950083F432 /* AnimeListView.swift */; };
-		B0E2155224969D6100D417D3 /* CombineFeedback in Frameworks */ = {isa = PBXBuildFile; productRef = B0E2155124969D6100D417D3 /* CombineFeedback */; };
-		B0E2155424969D6100D417D3 /* CombineFeedbackUI in Frameworks */ = {isa = PBXBuildFile; productRef = B0E2155324969D6100D417D3 /* CombineFeedbackUI */; };
+		B0ADB37A249F2A0200B1A381 /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADB379249F2A0200B1A381 /* AnimeAPI.swift */; };
+		B0ADB37D249F5B0800B1A381 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B0ADB37C249F5B0800B1A381 /* SDWebImage */; };
+		B0ADB37F249F5B0800B1A381 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B0ADB37E249F5B0800B1A381 /* SDWebImageMapKit */; };
+		B0ADB382249F5B9000B1A381 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B0ADB381249F5B9000B1A381 /* SDWebImageSwiftUI */; };
 		B0E215572496A15D00D417D3 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E215562496A15D00D417D3 /* System.swift */; };
 		B0E215592496A18900D417D3 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E215582496A18900D417D3 /* Feedback.swift */; };
 		B0EA989E2495238D0028DE8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA989D2495238D0028DE8A /* AppDelegate.swift */; };
@@ -42,6 +44,7 @@
 /* Begin PBXFileReference section */
 		B042E21224952C000083F432 /* AnimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewModel.swift; sourceTree = "<group>"; };
 		B042E21424952C950083F432 /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
+		B0ADB379249F2A0200B1A381 /* AnimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
 		B0E215562496A15D00D417D3 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		B0E215582496A18900D417D3 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		B0EA989A2495238D0028DE8A /* Trending Anime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trending Anime.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,8 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0E2155224969D6100D417D3 /* CombineFeedback in Frameworks */,
-				B0E2155424969D6100D417D3 /* CombineFeedbackUI in Frameworks */,
+				B0ADB382249F5B9000B1A381 /* SDWebImageSwiftUI in Frameworks */,
+				B0ADB37F249F5B0800B1A381 /* SDWebImageMapKit in Frameworks */,
+				B0ADB37D249F5B0800B1A381 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +97,14 @@
 				B042E21424952C950083F432 /* AnimeListView.swift */,
 			);
 			path = AnimeList;
+			sourceTree = "<group>";
+		};
+		B0ADB378249F29DD00B1A381 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B0ADB379249F2A0200B1A381 /* AnimeAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		B0E215552496A13D00D417D3 /* Feedback */ = {
@@ -127,6 +139,7 @@
 		B0EA989C2495238D0028DE8A /* Trending Anime */ = {
 			isa = PBXGroup;
 			children = (
+				B0ADB378249F29DD00B1A381 /* API */,
 				B0E215552496A13D00D417D3 /* Feedback */,
 				B042E21124952BCF0083F432 /* AnimeList */,
 				B0EA989D2495238D0028DE8A /* AppDelegate.swift */,
@@ -182,8 +195,9 @@
 			);
 			name = "Trending Anime";
 			packageProductDependencies = (
-				B0E2155124969D6100D417D3 /* CombineFeedback */,
-				B0E2155324969D6100D417D3 /* CombineFeedbackUI */,
+				B0ADB37C249F5B0800B1A381 /* SDWebImage */,
+				B0ADB37E249F5B0800B1A381 /* SDWebImageMapKit */,
+				B0ADB381249F5B9000B1A381 /* SDWebImageSwiftUI */,
 			);
 			productName = "Trending Anime";
 			productReference = B0EA989A2495238D0028DE8A /* Trending Anime.app */;
@@ -258,7 +272,8 @@
 			);
 			mainGroup = B0EA98912495238D0028DE8A;
 			packageReferences = (
-				B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */,
+				B0ADB37B249F5B0800B1A381 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B0ADB380249F5B9000B1A381 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = B0EA989B2495238D0028DE8A /* Products */;
 			projectDirPath = "";
@@ -307,6 +322,7 @@
 				B0EA989E2495238D0028DE8A /* AppDelegate.swift in Sources */,
 				B042E21324952C000083F432 /* AnimeListViewModel.swift in Sources */,
 				B0EA98A02495238D0028DE8A /* SceneDelegate.swift in Sources */,
+				B0ADB37A249F2A0200B1A381 /* AnimeAPI.swift in Sources */,
 				B0E215572496A15D00D417D3 /* System.swift in Sources */,
 				B0E215592496A18900D417D3 /* Feedback.swift in Sources */,
 			);
@@ -635,26 +651,39 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */ = {
+		B0ADB37B249F5B0800B1A381 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sergdort/CombineFeedback";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.0;
+				minimumVersion = 5.8.1;
+			};
+		};
+		B0ADB380249F5B9000B1A381 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B0E2155124969D6100D417D3 /* CombineFeedback */ = {
+		B0ADB37C249F5B0800B1A381 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */;
-			productName = CombineFeedback;
+			package = B0ADB37B249F5B0800B1A381 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
-		B0E2155324969D6100D417D3 /* CombineFeedbackUI */ = {
+		B0ADB37E249F5B0800B1A381 /* SDWebImageMapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B0E2155024969D6100D417D3 /* XCRemoteSwiftPackageReference "CombineFeedback" */;
-			productName = CombineFeedbackUI;
+			package = B0ADB37B249F5B0800B1A381 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		B0ADB381249F5B9000B1A381 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0ADB380249F5B9000B1A381 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
