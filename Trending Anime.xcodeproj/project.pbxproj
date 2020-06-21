@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B03ACA8024A00769002B3915 /* AnimeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03ACA7F24A00769002B3915 /* AnimeDetailViewModel.swift */; };
+		B03ACA8224A007AF002B3915 /* AnimeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03ACA8124A007AF002B3915 /* AnimeDetailView.swift */; };
 		B042E21324952C000083F432 /* AnimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042E21224952C000083F432 /* AnimeListViewModel.swift */; };
 		B042E21524952C950083F432 /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042E21424952C950083F432 /* AnimeListView.swift */; };
 		B0ADB37A249F2A0200B1A381 /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADB379249F2A0200B1A381 /* AnimeAPI.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B03ACA7F24A00769002B3915 /* AnimeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewModel.swift; sourceTree = "<group>"; };
+		B03ACA8124A007AF002B3915 /* AnimeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailView.swift; sourceTree = "<group>"; };
 		B042E21224952C000083F432 /* AnimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewModel.swift; sourceTree = "<group>"; };
 		B042E21424952C950083F432 /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
 		B0ADB379249F2A0200B1A381 /* AnimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
@@ -90,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B03ACA7E24A00749002B3915 /* AnimeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B03ACA7F24A00769002B3915 /* AnimeDetailViewModel.swift */,
+				B03ACA8124A007AF002B3915 /* AnimeDetailView.swift */,
+			);
+			path = AnimeDetail;
+			sourceTree = "<group>";
+		};
 		B042E21124952BCF0083F432 /* AnimeList */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		B0EA989C2495238D0028DE8A /* Trending Anime */ = {
 			isa = PBXGroup;
 			children = (
+				B03ACA7E24A00749002B3915 /* AnimeDetail */,
 				B0ADB378249F29DD00B1A381 /* API */,
 				B0E215552496A13D00D417D3 /* Feedback */,
 				B042E21124952BCF0083F432 /* AnimeList */,
@@ -320,10 +334,12 @@
 			files = (
 				B042E21524952C950083F432 /* AnimeListView.swift in Sources */,
 				B0EA989E2495238D0028DE8A /* AppDelegate.swift in Sources */,
+				B03ACA8224A007AF002B3915 /* AnimeDetailView.swift in Sources */,
 				B042E21324952C000083F432 /* AnimeListViewModel.swift in Sources */,
 				B0EA98A02495238D0028DE8A /* SceneDelegate.swift in Sources */,
 				B0ADB37A249F2A0200B1A381 /* AnimeAPI.swift in Sources */,
 				B0E215572496A15D00D417D3 /* System.swift in Sources */,
+				B03ACA8024A00769002B3915 /* AnimeDetailViewModel.swift in Sources */,
 				B0E215592496A18900D417D3 /* Feedback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
