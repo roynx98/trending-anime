@@ -39,7 +39,7 @@ final class AnimeListViewModel: ObservableObject {
 }
 
 extension AnimeListViewModel {
-    enum State : Equatable {
+    enum State: Equatable, CustomStringConvertible {
         static func == (lhs: AnimeListViewModel.State, rhs: AnimeListViewModel.State) -> Bool {
             
             switch (lhs, rhs) {
@@ -58,6 +58,24 @@ extension AnimeListViewModel {
         case loading
         case loaded([AnimeItem])
         case error(Error)
+        
+        var description: String {
+            switch self {
+            case .idle: return "idle"
+            case .loading: return "loading"
+            case .loaded: return "loaded"
+            case .error: return "error"
+            }
+        }
+        
+        var value: Any? {
+            switch self {
+            case .idle: return nil
+            case .loading: return nil
+            case .loaded(let data): return data
+            case .error(let data): return data
+            }
+        }
     }
 
     enum Event {
@@ -107,7 +125,7 @@ extension AnimeListViewModel {
             }
             
             return AnimeAPI().getTops()
-                // TODO: Why does it work?
+                // onAnimesLoaded behaves as a function
                 .map(Event.onAnimesLoaded)
                 .catch { Just(Event.onFailedToLoadAnimes($0)) }
                 .eraseToAnyPublisher()

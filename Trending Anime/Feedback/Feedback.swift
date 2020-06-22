@@ -17,8 +17,9 @@ extension Feedback {
     init<Effect: Publisher>(effects: @escaping (State) -> Effect) where Effect.Output == Event, Effect.Failure == Never {
         self.run = { state in
             state
+                // We execute our side effect and returns a new event
                 .map { effects($0) }
-                // Only use the last request (For no ap)
+                // Only use the last request
                 .switchToLatest()
                 .eraseToAnyPublisher()
         }

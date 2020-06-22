@@ -11,20 +11,20 @@ import SDWebImageSwiftUI
 
 struct AnimeListView: View {
     @ObservedObject var viewModel = AnimeListViewModel()
-    
+
     var body: some View {
         ZStack {
             Color("background1")
                 .edgesIgnoringSafeArea(.all)
+                .onAppear { self.viewModel.send(event: .onAppear) }
             
-            if viewModel.state == .loading {
+            if viewModel.state.description == "loading" {
                 LoadingContentView()
-            } else if viewModel.state == .idle {
-                Text("Idle").onAppear { self.viewModel.send(event: .onAppear) }
-                //TODO: Improve it
-            } else if viewModel.state == .loaded([]) {
-                LoadedContentView(state: viewModel.state)
-            } else {
+            } else if viewModel.state.description == "idle" {
+                IdleContentView()
+            } else if viewModel.state.description == "loaded" {
+                LoadedContentView(list: viewModel.state.value as! [AnimeItem])
+            } else if viewModel.state.description == "error" {
                 Text("Default")
             }
         }
@@ -42,15 +42,17 @@ struct LoadingContentView: View {
     @State var isAnimating = false
     
     var body: some View {
-        VStack {
-            Image("kunai")
-                .resizable()
-                .frame(width: 64, height: 64)
-                .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
-                .animation(Animation.linear(duration: 1.5)
-                    .repeatForever(autoreverses: false))
-                .onAppear {
-                    self.isAnimating = true
+        Group {
+            VStack {
+                Image("kunai")
+                    .resizable()
+                    .frame(width: 64, height: 64)
+                    .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+                    .animation(Animation.linear(duration: 1.5)
+                        .repeatForever(autoreverses: false))
+                    .onAppear {
+                        self.isAnimating = true
+                }
             }
         }
     }
@@ -58,21 +60,15 @@ struct LoadingContentView: View {
 
 struct IdleContentView: View {
     var body: some View {
-        VStack {
+        Group {
             Text("Idle")
         }
     }
 }
 
 struct LoadedContentView: View {
-    @State var topTenList: [AnimeItem] = []
     @State var list: [AnimeItem] = []
-    var state: AnimeListViewModel.State
     var typeColorMapping = ["TV": Color.red, "Movie": Color.purple, "OVA": Color.green]
-    
-    init(state: AnimeListViewModel.State) {
-        self.state = state
-    }
     
     var body: some View {
         NavigationView {
@@ -86,7 +82,7 @@ struct LoadedContentView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            ForEach(topTenList.indices, id: \.self) { index in
+                            ForEach(0..<10, id: \.self) { index in
                                 // TODO: Add zoom animation
                                 NavigationLink(destination:
                                     AnimeDetailView()
@@ -94,7 +90,7 @@ struct LoadedContentView: View {
                                         .navigationBarHidden(true)
                                 .navigationBarHidden(true)) {
                                     GeometryReader { proxy in
-                                        WebImage(url:  URL(string: self.topTenList[index].imageUrl))
+                                        WebImage(url:  URL(string: self.list[index].imageUrl))
                                             .resizable()
                                             .placeholder {
                                                 Rectangle().foregroundColor(.gray)
@@ -117,7 +113,7 @@ struct LoadedContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 20)
                     
-                    ForEach(list.indices, id: \.self) { index in
+                    ForEach(10..<list.count, id: \.self) { index in
                         HStack(spacing: 10) {
                             WebImage(url:  URL(string: self.list[index].imageUrl))
                                 .resizable()
@@ -155,12 +151,6 @@ struct LoadedContentView: View {
                 .navigationBarHidden(true)
                 
             }
-        }.onAppear {
-            if case let AnimeListViewModel.State.loaded(list) = self.state {
-                self.topTenList = Array(list[0..<10])
-                self.list =  Array(list[10..<list.endIndex])
-            }
         }
-        
     }
 }
