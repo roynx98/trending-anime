@@ -25,7 +25,7 @@ struct AnimeListView: View {
             } else if viewModel.state.description == "loaded" {
                 LoadedContentView(list: viewModel.state.value as! [AnimeItem])
             } else if viewModel.state.description == "error" {
-                Text("Default")
+                ErrorContentView(viewModel: viewModel, error: viewModel.state.value as! Error)
             }
         }
     }
@@ -42,32 +42,29 @@ struct LoadingContentView: View {
     @State var isAnimating = false
     
     var body: some View {
-        Group {
-            VStack {
-                Image("kunai")
-                    .resizable()
-                    .frame(width: 64, height: 64)
-                    .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
-                    .animation(Animation.linear(duration: 1.5)
-                        .repeatForever(autoreverses: false))
-                    .onAppear {
-                        self.isAnimating = true
-                }
+        VStack {
+            Image("kunai")
+                .resizable()
+                .frame(width: 64, height: 64)
+                .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+                .animation(Animation.linear(duration: 1.5)
+                    .repeatForever(autoreverses: false))
+                .onAppear {
+                    self.isAnimating = true
             }
         }
     }
+    
 }
 
 struct IdleContentView: View {
     var body: some View {
-        Group {
-            Text("Idle")
-        }
+        Text("Idle")
     }
 }
 
 struct LoadedContentView: View {
-    @State var list: [AnimeItem] = []
+    var list: [AnimeItem] = []
     var typeColorMapping = ["TV": Color.red, "Movie": Color.purple, "OVA": Color.green]
     
     var body: some View {
@@ -151,6 +148,24 @@ struct LoadedContentView: View {
                 .navigationBarHidden(true)
                 
             }
+        }
+    }
+}
+
+struct ErrorContentView: View {
+    var viewModel: AnimeListViewModel
+    var error: Error
+    
+    var body: some View {
+        VStack {
+            Image("error")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 180)
+            Text(error.localizedDescription)
+            Button(action: { self.viewModel.send(event: .onReload) }) {
+                Text("Try again")
+            }.padding(.top)
         }
     }
 }
