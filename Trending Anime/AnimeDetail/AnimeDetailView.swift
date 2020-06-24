@@ -9,14 +9,17 @@
 import SwiftUI
 
 struct AnimeDetailView: View {
+    var animeItem: AnimeItem
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(animeItem.title)
+        }
     }
 }
 
 struct AnimeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimeDetailView()
+        AnimeDetailView(animeItem: AnimeItem(title: "", type: "", imageUrl: "", episodes: 1))
     }
 }

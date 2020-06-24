@@ -81,6 +81,7 @@ extension AnimeListViewModel {
     enum Event {
         case onAppear
         case onReload
+        case onSelectAnime(AnimeItem)
         case onAnimesLoaded([AnimeItem])
         case onFailedToLoadAnimes(Error)
     }
@@ -108,6 +109,12 @@ extension AnimeListViewModel {
                 return state
             }
         case .loaded:
+            switch event {
+            case .onSelectAnime(let anime):
+                return state
+            default:
+                return state
+            }
             return state
         case .error:
             switch event {
