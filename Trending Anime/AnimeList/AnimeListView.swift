@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct AnimeListView: View {
     @ObservedObject var viewModel = AnimeListViewModel()
-
+    
     var body: some View {
         ZStack {
             Color("background1")
@@ -23,7 +23,7 @@ struct AnimeListView: View {
             } else if viewModel.state.description == "idle" {
                 IdleContentView()
             } else if viewModel.state.description == "loaded" {
-                LoadedContentView(viewModel: viewModel, list: viewModel.state.value as! [AnimeItem])
+                LoadedContentView(viewModel: viewModel)
             } else if viewModel.state.description == "error" {
                 ErrorContentView(viewModel: viewModel, error: viewModel.state.value as! Error)
             }
@@ -65,83 +65,90 @@ struct IdleContentView: View {
 
 struct LoadedContentView: View {
     let typeColorMapping = ["TV": Color.red, "Movie": Color.purple, "OVA": Color.green]
+    @ObservedObject var viewModel: AnimeListViewModel
     
-    var viewModel: AnimeListViewModel
-    var list: [AnimeItem] = []
+    func getVal() -> AnimeListViewModel.LoadedPayload {
+        return viewModel.state.value as! AnimeListViewModel.LoadedPayload
+    }
     
     var body: some View {
-        ScrollView {
-            
-            VStack(spacing: 20) {
-                HStack {
-                    Text("🔭 Discover")
-                        .bold()
-                }.padding(.top, 20)
+        
+        ZStack {
+            ScrollView {
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
-                        ForEach(0..<10, id: \.self) { index in
-                            // TODO: Add zoom animation
-                            GeometryReader { proxy in
-                                WebImage(url:  URL(string: self.list[index].imageUrl))
-                                    .resizable()
-                                    .placeholder { Rectangle().foregroundColor(.gray) }
-                                    .renderingMode(.original)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                                    .frame(width: 180, height: 277)
-                                    .aspectRatio(contentMode: .fill)
-                                    .shadow(radius: 10, x: 0, y: 10)
-                                    .padding(.leading, 15)
-                                    .onTapGesture {
-                                        self.viewModel.send(event: .onSelectAnime(self.list[index]))
+                VStack(spacing: 20) {
+                    HStack {
+                        Text("🔭 Discover")
+                            .bold()
+                    }.padding(.top, 20)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(0..<10, id: \.self) { index in
+                                // TODO: Add zoom animation
+                                GeometryReader { proxy in
+                                    WebImage(url:  URL(string: self.getVal().list[index].imageUrl))
+                                        .resizable()
+                                        .placeholder { Rectangle().foregroundColor(.gray) }
+                                        .renderingMode(.original)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                        .frame(width: 180, height: 277)
+                                        .aspectRatio(contentMode: .fill)
+                                        .shadow(radius: 10, x: 0, y: 10)
+                                        .padding(.leading, 15)
+                                        .onTapGesture {
+                                            self.viewModel.send(event: .onSelectAnime(self.getVal().list[index]))
                                     }
-                            }.frame(width: 180, height: 277)
-                        }
-                    }.padding(.vertical, 30)
-                }
-                
-                Text("⭐️ Trending")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                
-                ForEach(10..<list.count, id: \.self) { index in
-                    HStack(spacing: 10) {
-                        WebImage(url:  URL(string: self.list[index].imageUrl))
-                            .resizable()
-                            .placeholder {
-                                Rectangle().foregroundColor(.gray)
-                        }
-                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                        .frame(width: 120, height: 154)
-                        .aspectRatio(contentMode: .fit)
-                        .shadow(radius: 10, x: 0, y: 10)
-                        .padding(.leading, 15)
-                        VStack(alignment: .leading) {
-                            Text(self.list[index].type)
-                                .font(.footnote)
-                                .fontWeight(.bold)
-                                .padding(.vertical, 2)
-                                .padding(.horizontal, 10)
-                                .foregroundColor(Color.white)
-                                .background(self.typeColorMapping[self.list[index].type, default: Color.black])
+                                }.frame(width: 180, height: 277)
+                            }
+                        }.padding(.vertical, 30)
+                    }
+                    
+                    Text("⭐️ Trending")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 20)
+                    
+                    ForEach(10..<getVal().list.count, id: \.self) { index in
+                        HStack(spacing: 10) {
+                            WebImage(url:  URL(string: self.getVal().list[index].imageUrl))
+                                .resizable()
+                                .placeholder { Rectangle().foregroundColor(.gray) }
                                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            Text(self.list[index].title)
-                                .font(.system(size: 22))
-                                .padding(.top, 15)
-                            Text("Episosdes \(self.list[index].episodes)")
-                                .font(.footnote)
-                                .foregroundColor(Color.gray)
-                                .padding(.top, 15)
-                            
+                                .frame(width: 120, height: 154)
+                                .aspectRatio(contentMode: .fit)
+                                .shadow(radius: 10, x: 0, y: 10)
+                                .padding(.leading, 15)
+                            VStack(alignment: .leading) {
+                                Text(self.getVal().list[index].type)
+                                    .font(.footnote)
+                                    .fontWeight(.bold)
+                                    .padding(.vertical, 2)
+                                    .padding(.horizontal, 10)
+                                    .foregroundColor(Color.white)
+                                    .background(self.typeColorMapping[self.getVal().list[index].type, default: Color.black])
+                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                Text(self.getVal().list[index].title)
+                                    .font(.system(size: 22))
+                                    .padding(.top, 15)
+                                Text("Episosdes \(self.getVal().list[index].episodes)")
+                                    .font(.footnote)
+                                    .foregroundColor(Color.gray)
+                                    .padding(.top, 15)
+                                
+                                Spacer()
+                            }
                             Spacer()
                         }
-                        Spacer()
                     }
                 }
+                
             }
-            
+            AnimeDetailView()
+                .edgesIgnoringSafeArea(.all)
+                .offset(x: self.getVal().currentAnime == nil ? screen.width : 0)
+                .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
         }
     }
 }
@@ -163,3 +170,5 @@ struct ErrorContentView: View {
         }
     }
 }
+
+let screen = UIScreen.main.bounds

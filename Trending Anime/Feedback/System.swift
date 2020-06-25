@@ -21,7 +21,6 @@ struct Test {
     ) -> AnyPublisher<State, Never> {
         // We generate a publisher for our current state
         let state = CurrentValueSubject<State, Never>(initial)
-        
         let events = feedbacks.map { feedback in feedback.run(state.eraseToAnyPublisher()) }
         
         return Deferred {

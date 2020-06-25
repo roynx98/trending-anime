@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 
+/// Functons that receive un state, then make solo logic and return an event
 struct Feedback<State, Event> {
     let run: (AnyPublisher<State, Never>) -> AnyPublisher<Event, Never>
 }
@@ -16,7 +17,7 @@ struct Feedback<State, Event> {
 extension Feedback {
     init<Effect: Publisher>(effects: @escaping (State) -> Effect) where Effect.Output == Event, Effect.Failure == Never {
         self.run = { state in
-            state
+            return state
                 // We execute our side effect and returns a new event
                 .map { effects($0) }
                 // Only use the last request

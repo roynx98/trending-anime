@@ -9,17 +9,17 @@
 import SwiftUI
 
 struct AnimeDetailView: View {
-    var animeItem: AnimeItem
     
     var body: some View {
-        VStack {
-            Text(animeItem.title)
+        ZStack {
+            Color(.red)
+            Text("Hola mundo")
         }
     }
 }
 
 struct AnimeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimeDetailView(animeItem: AnimeItem(title: "", type: "", imageUrl: "", episodes: 1))
+        AnimeDetailView()
     }
 }

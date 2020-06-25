@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 final class AnimeListViewModel: ObservableObject {
-    @Published private(set) var state = State.idle
+    @Published var state = State.idle
     private var bag = Set<AnyCancellable>()
     private let input = PassthroughSubject<Event, Never>()
     
@@ -21,6 +21,7 @@ final class AnimeListViewModel: ObservableObject {
             reduce: Self.reduce,
             scheduler: RunLoop.main,
             feedbacks: [
+                // Functions that receive an state and return an event
                 Self.userInput(input: input.eraseToAnyPublisher()),
                 Self.whenLoading()
             ])
@@ -56,7 +57,7 @@ extension AnimeListViewModel {
         
         case idle
         case loading
-        case loaded([AnimeItem])
+        case loaded(LoadedPayload)
         case error(Error)
         
         var description: String {
@@ -76,6 +77,12 @@ extension AnimeListViewModel {
             case .error(let data): return data
             }
         }
+    }
+    
+    
+    struct LoadedPayload {
+        let list: [AnimeItem]
+        var currentAnime: AnimeItem?
     }
 
     enum Event {
@@ -104,18 +111,18 @@ extension AnimeListViewModel {
             case .onFailedToLoadAnimes(let error):
                 return .error(error)
             case .onAnimesLoaded(let animes):
-                return .loaded(animes)
+                return .loaded(LoadedPayload(list: animes))
             default:
                 return state
             }
-        case .loaded:
+        case .loaded(var payload):
             switch event {
             case .onSelectAnime(let anime):
-                return state
+                payload.currentAnime = anime
+                return .loaded(payload)
             default:
                 return state
             }
-            return state
         case .error:
             switch event {
             case .onReload:
@@ -124,6 +131,7 @@ extension AnimeListViewModel {
                 return state
             }
         }
+      
     }
     
     static func userInput(input: AnyPublisher<Event, Never>) -> Feedback<State, Event> {
