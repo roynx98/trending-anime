@@ -66,6 +66,7 @@ struct IdleContentView: View {
 struct LoadedContentView: View {
     let typeColorMapping = ["TV": Color.red, "Movie": Color.purple, "OVA": Color.green]
     @ObservedObject var viewModel: AnimeListViewModel
+    @State var showDetails = false
     
     func getVal() -> AnimeListViewModel.LoadedPayload {
         return viewModel.state.value as! AnimeListViewModel.LoadedPayload
@@ -97,6 +98,7 @@ struct LoadedContentView: View {
                                         .shadow(radius: 10, x: 0, y: 10)
                                         .padding(.leading, 15)
                                         .onTapGesture {
+                                            self.showDetails = true
                                             self.viewModel.send(event: .onSelectAnime(self.getVal().list[index]))
                                     }
                                 }.frame(width: 180, height: 277)
@@ -145,10 +147,19 @@ struct LoadedContentView: View {
                 }
                 
             }
-            AnimeDetailView()
-                .edgesIgnoringSafeArea(.all)
-                .offset(x: self.getVal().currentAnime == nil ? screen.width : 0)
-                .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+            
+            if (self.showDetails) {
+                AnimeDetailView(currentAnime: self.getVal().currentAnime ?? AnimeItem(title: "", type: "", imageUrl: "", episodes: 2), dissmiss: $showDetails)
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.move(edge: .trailing))
+                    .animation(Animation.spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0).speed(0.4))
+                    .zIndex(1)
+            }
+//            AnimeDetailView(currentAnime: self.getVal().currentAnime)
+//                .animation(Animation.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+//                .edgesIgnoringSafeArea(.all)
+//                .offset(x: self.getVal().currentAnime.title == "" ? screen.width : 0)
+                
         }
     }
 }
