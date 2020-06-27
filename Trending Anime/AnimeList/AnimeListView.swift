@@ -152,14 +152,11 @@ struct LoadedContentView: View {
                 AnimeDetailView(currentAnime: self.getVal().currentAnime ?? AnimeItem(title: "", type: "", imageUrl: "", episodes: 2), dissmiss: $showDetails)
                     .edgesIgnoringSafeArea(.all)
                     .transition(.move(edge: .trailing))
-                    .animation(Animation.spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0).speed(0.4))
+                    .animation(Animation.default.speed(1.5))
                     .zIndex(1)
+                    // It will rebuild the view, for fixing the text animations problems
+                    .id(UUID())
             }
-//            AnimeDetailView(currentAnime: self.getVal().currentAnime)
-//                .animation(Animation.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-//                .edgesIgnoringSafeArea(.all)
-//                .offset(x: self.getVal().currentAnime.title == "" ? screen.width : 0)
-                
         }
     }
 }
