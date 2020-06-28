@@ -34,4 +34,6 @@ struct AnimeItem: Codable {
     var type: String
     var imageUrl: String
     var episodes: Int
+    var startDate: String
+    var score: Float
 }

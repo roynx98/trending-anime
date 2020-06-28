@@ -59,7 +59,7 @@ struct LoadingContentView: View {
 
 struct IdleContentView: View {
     var body: some View {
-        Text("Idle")
+        Text("")
     }
 }
 
@@ -75,7 +75,7 @@ struct LoadedContentView: View {
     var body: some View {
         
         ZStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 
                 VStack(spacing: 20) {
                     HStack {
@@ -134,7 +134,7 @@ struct LoadedContentView: View {
                                 Text(self.getVal().list[index].title)
                                     .font(.system(size: 22))
                                     .padding(.top, 15)
-                                Text("Episosdes \(self.getVal().list[index].episodes)")
+                                Text("Episodes \(self.getVal().list[index].episodes)")
                                     .font(.footnote)
                                     .foregroundColor(Color.gray)
                                     .padding(.top, 15)
@@ -149,8 +149,8 @@ struct LoadedContentView: View {
             }
             
             if (self.showDetails) {
-                AnimeDetailView(currentAnime: self.getVal().currentAnime ?? AnimeItem(title: "", type: "", imageUrl: "", episodes: 2), dissmiss: $showDetails)
-                    .edgesIgnoringSafeArea(.all)
+                AnimeDetailView(currentAnime: self.getVal().currentAnime!, dissmiss: $showDetails)
+//                    .edgesIgnoringSafeArea(.all)
                     .transition(.move(edge: .trailing))
                     .animation(Animation.default.speed(1.5))
                     .zIndex(1)
