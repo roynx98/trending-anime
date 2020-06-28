@@ -10,12 +10,12 @@ import Foundation
 import Combine
 
 final class AnimeListViewModel: ObservableObject {
-    @Published var state = State.idle
+    @Published private(set) var state = State.idle
     private var bag = Set<AnyCancellable>()
     private let input = PassthroughSubject<Event, Never>()
     
     init() {
-        Test.system(
+        FSM.system(
             initial: state,
             // It's the same as AnimeList.reduce
             reduce: Self.reduce,
@@ -40,21 +40,7 @@ final class AnimeListViewModel: ObservableObject {
 }
 
 extension AnimeListViewModel {
-    enum State: Equatable, CustomStringConvertible {
-        static func == (lhs: AnimeListViewModel.State, rhs: AnimeListViewModel.State) -> Bool {
-            
-            switch (lhs, rhs) {
-            case (.idle, .idle):
-                return true
-            case (.loading, .loading):
-                return true
-            case (.loaded, .loaded):
-                return true
-            default:
-                return false
-            }
-        }
-        
+    enum State: CustomStringConvertible {
         case idle
         case loading
         case loaded(LoadedPayload)
@@ -78,7 +64,6 @@ extension AnimeListViewModel {
             }
         }
     }
-    
     
     struct LoadedPayload {
         let list: [AnimeItem]

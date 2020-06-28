@@ -22,7 +22,7 @@ class AnimeListViewModelTests: XCTestCase {
     }
 
     func testExample() throws {
-        XCTAssertEqual(animeListViewModel.state, .idle)
+        XCTAssertEqual(animeListViewModel.state.description, "idle")
     }
 
 }

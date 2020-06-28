@@ -72,6 +72,11 @@ struct LoadedContentView: View {
         return viewModel.state.value as! AnimeListViewModel.LoadedPayload
     }
     
+    func calculateScale(x: CGFloat) -> CGFloat {
+        let dist = abs(screen.width / 2 - x) / (screen.width / 2)
+        return 0.9 + (0.2 * (1 - dist))
+    }
+    
     var body: some View {
         
         ZStack {
@@ -100,10 +105,13 @@ struct LoadedContentView: View {
                                         .onTapGesture {
                                             self.showDetails = true
                                             self.viewModel.send(event: .onSelectAnime(self.getVal().list[index]))
-                                    }
+                                        }
+                                    .scaleEffect(self.calculateScale(x: proxy.frame(in: .global).minX + 90))
                                 }.frame(width: 180, height: 277)
                             }
-                        }.padding(.vertical, 30)
+                        }
+                        .padding(30)
+                        .padding(.bottom, 10)
                     }
                     
                     Text("⭐️ Trending")
@@ -142,15 +150,16 @@ struct LoadedContentView: View {
                                 Spacer()
                             }
                             Spacer()
+                        } .onTapGesture {
+                            self.showDetails = true
+                            self.viewModel.send(event: .onSelectAnime(self.getVal().list[index]))
                         }
                     }
                 }
-                
             }
             
             if (self.showDetails) {
                 AnimeDetailView(currentAnime: self.getVal().currentAnime!, dissmiss: $showDetails)
-//                    .edgesIgnoringSafeArea(.all)
                     .transition(.move(edge: .trailing))
                     .animation(Animation.default.speed(1.5))
                     .zIndex(1)

@@ -8,7 +8,7 @@
 
 import Combine
 
-struct Test {
+struct FSM {
     
     /// Change the state based on the reduce function and applies side effects
     /// trough feedbacks.

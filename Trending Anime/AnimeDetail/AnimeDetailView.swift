@@ -8,8 +8,10 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import SwiftUI
 
 struct AnimeDetailView: View {
+    @ObservedObject var viewModel = AnimeDetailViewModel(animeID: 1)
     var currentAnime: AnimeItem
     @Binding var dissmiss: Bool
     @State var rating: CGFloat = 0
@@ -76,6 +78,8 @@ struct AnimeDetailView: View {
                     Spacer()
                 }
             }
+        }.onAppear {
+            self.viewModel.send(event: .onAppear)
         }
     }
 }
