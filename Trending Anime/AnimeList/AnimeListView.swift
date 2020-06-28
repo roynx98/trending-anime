@@ -150,7 +150,8 @@ struct LoadedContentView: View {
                                 Spacer()
                             }
                             Spacer()
-                        } .onTapGesture {
+                        }.background(Color("background1"))
+                        .onTapGesture {
                             self.showDetails = true
                             self.viewModel.send(event: .onSelectAnime(self.getVal().list[index]))
                         }
