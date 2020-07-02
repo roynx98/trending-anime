@@ -44,7 +44,7 @@ extension AnimeDetailViewModel {
     enum State: CustomStringConvertible {
         case idle(Int)
         case loading(Int)
-        case loaded(LoadedPayload)
+        case loaded(AnimeDetail)
         case error(Error)
         
         var description: String {
@@ -66,16 +66,10 @@ extension AnimeDetailViewModel {
         }
     }
     
-    struct LoadedPayload {
-        let list: [AnimeItem]
-        var currentAnime: AnimeItem?
-    }
-
     enum Event {
         case onAppear
         case onReload
-        case onSelectAnime(AnimeItem)
-        case onAnimesLoaded([AnimeItem])
+        case onAnimeDetailLoaded(AnimeDetail)
         case onFailedToLoadAnimes(Error)
     }
 }
@@ -96,19 +90,13 @@ extension AnimeDetailViewModel {
             switch event {
             case .onFailedToLoadAnimes(let error):
                 return .error(error)
-            case .onAnimesLoaded(let animes):
-                return .loaded(LoadedPayload(list: animes))
+            case .onAnimeDetailLoaded(let animeDetail):
+                return .loaded(animeDetail)
             default:
                 return state
             }
-        case .loaded(var payload):
-            switch event {
-            case .onSelectAnime(let anime):
-                payload.currentAnime = anime
-                return .loaded(payload)
-            default:
-                return state
-            }
+        case .loaded:
+            return state
         case .error:
             switch event {
             case .onReload:
@@ -126,14 +114,11 @@ extension AnimeDetailViewModel {
     
     static func whenLoading() -> Feedback<State, Event> {
         return Feedback { (state: State) -> AnyPublisher<Event, Never> in
+            guard case .loading(let id) = state else { return Empty().eraseToAnyPublisher() }
             
-            guard case .loading = state else {
-                return Empty().eraseToAnyPublisher()
-            }
-            
-            return AnimeAPI().getTops()
+            return AnimeAPI().getDetail(animeID: id)
                 // onAnimesLoaded behaves as a function
-                .map(Event.onAnimesLoaded)
+                .map(Event.onAnimeDetailLoaded)
                 .catch { Just(Event.onFailedToLoadAnimes($0)) }
                 .eraseToAnyPublisher()
         }

@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 import SwiftUI
 
 struct AnimeDetailView: View {
-    @ObservedObject var viewModel = AnimeDetailViewModel(animeID: 1)
+    @ObservedObject var viewModel: AnimeDetailViewModel
     var currentAnime: AnimeItem
     @Binding var dissmiss: Bool
     @State var rating: CGFloat = 0
@@ -99,11 +99,11 @@ struct BubbleText: View {
     }
 }
 
-struct AnimeDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        AnimeDetailView(currentAnime: AnimeItem(title: "One Punch Man", type: "", imageUrl: "", episodes: 2, startDate: "ss", score: 0), dissmiss: .constant(true))
-    }
-}
+//struct AnimeDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AnimeDetailView(currentAnime: AnimeItem(title: "One Punch Man", type: "", imageUrl: "", episodes: 2, startDate: "ss", score: 0), dissmiss: .constant(true))
+//    }
+//}
 
 struct RatingView: View {
     @Binding var per: CGFloat

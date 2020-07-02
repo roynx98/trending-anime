@@ -160,7 +160,7 @@ struct LoadedContentView: View {
             }
             
             if (self.showDetails) {
-                AnimeDetailView(currentAnime: self.getVal().currentAnime!, dissmiss: $showDetails)
+                AnimeDetailView(viewModel: AnimeDetailViewModel(animeID: self.getVal().currentAnime!.malId), currentAnime: self.getVal().currentAnime!, dissmiss: $showDetails)
                     .transition(.move(edge: .trailing))
                     .animation(Animation.default.speed(1.5))
                     .zIndex(1)

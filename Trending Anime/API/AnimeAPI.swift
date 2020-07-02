@@ -23,6 +23,21 @@ struct AnimeAPI {
             .eraseToAnyPublisher()
     }
     
+    func getDetail(animeID: Int) -> AnyPublisher<AnimeDetail, Error> {
+        let url = URL(string: "https://api.jikan.moe/v3/anime/\(animeID)")!
+        let publisher = URLSession.shared.dataTaskPublisher(for: url)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        return publisher.map(\.data)
+            .decode(type: AnimeDetail.self, decoder: decoder)
+            .eraseToAnyPublisher()
+    }
+    
+}
+
+struct AnimeDetail: Codable {
+    var synopsis: String
 }
 
 struct AnimeReponse: Codable {
@@ -31,6 +46,7 @@ struct AnimeReponse: Codable {
 
 struct AnimeItem: Codable {
     var title: String
+    var malId: Int
     var type: String
     var imageUrl: String
     var episodes: Int
