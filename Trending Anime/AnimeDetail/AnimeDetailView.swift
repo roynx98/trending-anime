@@ -42,7 +42,11 @@ struct AnimeDetailView: View {
                     
                     HStack() {
                         BubbleText(text: "Released \(currentAnime.startDate)", color: Color.blue)
-                        BubbleText(text: "Finished", color: Color.green)
+                        if viewModel.state.description == "loaded" {
+                             BubbleText(text: (viewModel.state.value as! AnimeDetail).status, color: Color.green)
+                        } else {
+                            BubbleText(text: "", color: Color.green)
+                        }
                         Spacer()
                     }.padding(.leading, 18)
                     
@@ -56,11 +60,18 @@ struct AnimeDetailView: View {
                     }.frame(width: screen.width)
                     
                     HStack {
-                        Text("Action, Comedy, Supernatural")
-                            .foregroundColor(Color.gray)
+                        if viewModel.state.description == "loaded" {
+                            Text((viewModel.state.value as! AnimeDetail).rating)
+                                .foregroundColor(Color.gray)
+                        }
                         Spacer()
-                        Text("24 min/Ep")
-                            .foregroundColor(Color.gray)
+                        if viewModel.state.description == "loaded" {
+                            Text((viewModel.state.value as! AnimeDetail).duration)
+                                .foregroundColor(Color.gray)
+                        } else {
+                            // To left a space
+                            Text(" ")
+                        }
                     }.padding(.horizontal, 20)
                     
                     RatingView(per: $rating)
@@ -71,9 +82,16 @@ struct AnimeDetailView: View {
                             }
                         }
                     
-                    Text("In order for something to be obtained, something of equal value must be lost.\" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body.")
-                        .frame(height: 150)
-                        .padding(.horizontal, 20)
+                    if viewModel.state.description == "loaded" {
+                        Text((viewModel.state.value as! AnimeDetail).synopsis)
+                            .frame(height: 150)
+                            .padding(.horizontal, 20)
+                    } else {
+                        // TODO Put an effect
+                        Text("...")
+                            .frame(height: 150)
+                            .padding(.horizontal, 20)
+                    }
                     
                     Spacer()
                 }

@@ -38,6 +38,9 @@ struct AnimeAPI {
 
 struct AnimeDetail: Codable {
     var synopsis: String
+    var status: String
+    var rating: String
+    var duration: String
 }
 
 struct AnimeReponse: Codable {
