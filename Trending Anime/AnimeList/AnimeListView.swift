@@ -142,7 +142,7 @@ struct LoadedContentView: View {
                                 Text(self.getVal().list[index].title)
                                     .font(.system(size: 22))
                                     .padding(.top, 15)
-                                Text("Episodes \(self.getVal().list[index].episodes)")
+                                Text("Episodes \(self.getVal().list[index].episodes ?? 0)")
                                     .font(.footnote)
                                     .foregroundColor(Color.gray)
                                     .padding(.top, 15)
