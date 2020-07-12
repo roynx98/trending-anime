@@ -1,6 +1,6 @@
 # Trending Anime
 
-![Test](https://img.shields.io/badge/platforms-iPhone-lightgrey) ![GitHub stars](https://img.shields.io/github/stars/roynx98/trending-anime?style=social)
+![](https://img.shields.io/badge/platforms-iPhone-lightgrey) ![](https://img.shields.io/github/stars/roynx98/trending-anime?style=social) ![](https://travis-ci.org/roynx98/trending-anime.svg?branch=master)
 
 Trending Anime is an iOS app that allows you to see information about the lastest trending animes.
 
