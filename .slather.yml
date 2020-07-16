@@ -1,0 +1,4 @@
+coverage_service: cobertura_xml
+xcodeproj: Trending Anime.xcodeproj
+scheme: Trending Anime
+output_directory: ./test-reports

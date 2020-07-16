@@ -1,4 +1,6 @@
 os: osx
+before_install: rvm use $RVM_RUBY_VERSION
+install: bundle install --without=documentation --path ../travis_bundle_dir
 language: swift
 osx_image: xcode11.4
 xcode_project: Trending Anime.xcodeproj
@@ -6,4 +8,4 @@ xcode_scheme: Trending Anime
 xcode_sdk: iphonesimulator13.4
 xcode_destination: platform=iOS Simulator,OS=13.4.1,name=iPhone 11
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -f ./test-reports/xml_report/cobertura.xml -X coveragepy -X gcov -X xcode
