@@ -6,6 +6,6 @@ xcode_scheme: Trending Anime
 xcode_sdk: iphonesimulator13.4
 xcode_destination: platform=iOS Simulator,OS=13.4.1,name=iPhone 11
 script:
-  - xcodebuild -scheme Trending\ Anime -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.4' build test
+  - xcodebuild -scheme Trending\ Anime -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.4.1' build test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
